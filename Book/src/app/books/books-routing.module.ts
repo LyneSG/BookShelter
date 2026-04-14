@@ -1,13 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
-import { NewBook } from './new-book/new-book';
-import { SingleBook } from './single-book/single-book';
-import { BookList } from './book-list/book-list';
+import { NewBookComponent } from './new-book/new-book.component';
+import { SingleBookComponent } from './single-book/single-book.component';
+import { BookListComponent } from './book-list/book-list.component';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  {path: '/create', component: NewBook},
-  {path: '/:isbn', component: SingleBook},
-  {path: '', component: BookList},
+  {path: 'create', component: NewBookComponent},
+  {path: ':isbn', component: SingleBookComponent},
+  {path: '', component: BookListComponent},
 ]
 
 @NgModule({
