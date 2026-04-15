@@ -19,6 +19,9 @@ public class BookDTO {
         @NotNull @NotBlank
         String bookName;
 
+        @NotNull @NotBlank
+        String bookAuthor;
+
         @NotNull
         Integer bookPages;
 
@@ -32,6 +35,7 @@ public class BookDTO {
         Long bookId;
         String bookIsbn;
         String bookName;
+        String bookAuthor;
         Integer bookPages;
         String bookDescription;
     }
@@ -43,6 +47,7 @@ public class BookDTO {
         @NotNull @NotBlank
         String bookIsbn;
         String bookName;
+        String bookAuthor;
         Integer bookPages;
         String bookDescription;
     }
@@ -54,6 +59,7 @@ public class BookDTO {
         Long bookId;
         String bookIsbn;
         String bookName;
+        String bookAuthor;
         Integer bookPages;
         String bookDescription;
     }

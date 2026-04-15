@@ -38,12 +38,13 @@ public class BookRestController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public BookDTO.PostOutput createBook(@Valid @RequestBody BookDTO.PostInput input) throws BookCreationException {
-        BookEntity newBook =  bookService.createBook(input.getBookIsbn(), input.getBookName(), input.getBookPages(), input.getBookDescription());
+        BookEntity newBook =  bookService.createBook(input.getBookIsbn(), input.getBookName(), input.getBookAuthor(), input.getBookPages(), input.getBookDescription());
 
         return BookDTO.PostOutput.builder()
                 .bookId(newBook.getId())
                 .bookIsbn(newBook.getIsbn())
                 .bookName(newBook.getName())
+                .bookAuthor(newBook.getAuthor())
                 .bookPages(newBook.getPages())
                 .bookDescription(newBook.getDescription())
                 .build();

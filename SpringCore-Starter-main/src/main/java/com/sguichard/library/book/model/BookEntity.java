@@ -17,6 +17,7 @@ public class BookEntity {
     @Column(unique = true)
     String isbn;
     String name;
+    String author;
     Integer pages;
     Integer yearRelease;
     String description;

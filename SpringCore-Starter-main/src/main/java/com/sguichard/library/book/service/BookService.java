@@ -31,10 +31,11 @@ public class BookService {
         return book;
     }
 
-    public BookEntity createBook(String isbn, String bookName, Integer bookPages, String description) throws BookCreationException {
+    public BookEntity createBook(String isbn, String bookName, String bookAuthor, Integer bookPages, String description) throws BookCreationException {
 
         if(!BookService.isValidISBN(isbn)) throw new BookCreationException("Il faut un ISBN valide");
         if(StringUtils.isBlank(bookName)) throw new BookCreationException("Il manque le titre du livre");
+        if(StringUtils.isBlank(bookAuthor)) throw new BookCreationException("Il faut un.e auteur.ice");
         if(bookPages == null || bookPages <= 0) throw new BookCreationException("Il manque le nombre de pages du livre");
 
         BookEntity existingBook = bookRepository.findByIsbn(isbn);
@@ -46,6 +47,7 @@ public class BookService {
         BookEntity newBook = BookEntity.builder()
                 .isbn(isbn)
                 .name(bookName)
+                .author(bookAuthor)
                 .pages(bookPages)
                 .description(description)
                 .build();
